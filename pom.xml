@@ -47,12 +47,14 @@
 		<release.javaee-api.lib>6.0</release.javaee-api.lib>
 		<release.persistence-api.lib>1.0</release.persistence-api.lib>
 		<release.javax.servlet-api.lib>3.0.1</release.javax.servlet-api.lib>
+		<release.commons-beanutils>1.9.2</release.commons-beanutils>
+		<release.json-rpc>1.0</release.json-rpc>
 		
 		<release.org.jboss.resteasy.resteasy-jaxrs.lib>2.3.6.Final</release.org.jboss.resteasy.resteasy-jaxrs.lib>
 		<release.org.jboss.resteasy.resteasy-jackson-provider.lib>2.2.1.GA</release.org.jboss.resteasy.resteasy-jackson-provider.lib>
 		<!-- SIS DATA MANAGER -->
-		<release.it.toscana.regione.eng.common.rest.rest.client>jdk1.6-1.5.1</release.it.toscana.regione.eng.common.rest.rest.client>
-		<release.it.toscana.regione.eng.common.rest.rest.response.entity>jdk1.6-1.21.0</release.it.toscana.regione.eng.common.rest.rest.response.entity>
+		<release.it.toscana.regione.eng.common.rest.rest.client>jdk1.6-1.5.7</release.it.toscana.regione.eng.common.rest.rest.client>
+		<release.it.toscana.regione.eng.common.rest.rest.response.entity>jdk1.6-1.75.0</release.it.toscana.regione.eng.common.rest.rest.response.entity>
 		<release.it.toscana.regione.eng.common.AnagraficheRestUtility>1.0</release.it.toscana.regione.eng.common.AnagraficheRestUtility>
 		
 		<context.root>wsods</context.root>
@@ -84,6 +86,18 @@
 			<version>${release.log4j.lib}</version>
 			<type>jar</type>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.metaparadigm</groupId>
+			<artifactId>json-rpc</artifactId>
+			<version>${release.json-rpc}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${release.commons-beanutils}</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 	<distributionManagement>

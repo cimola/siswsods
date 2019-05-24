@@ -56,7 +56,8 @@
 			<groupId>it.toscana.regione.monitoraggio</groupId>
 			<artifactId>monitoraggio-ejb</artifactId>
 			<version>${release.monitoraggio.lib}</version>
-			<scope>provided</scope>
+			<scope>system</scope>
+      		<systemPath>${basedir}/../libs/compiler-libs/monitoraggio-ejb-${release.monitoraggio.lib}.jar</systemPath>
 		</dependency>
 
 		<dependency>
