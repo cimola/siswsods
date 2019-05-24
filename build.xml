@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project name="autocertificatore" default="local">
+	<description>
+	</description>
+
+	<target name="local">
+		<ant antfile="./build_mvn.xml" target="maven-build" inheritall="false">
+			<property name="profile" value="local" />
+		</ant>
+	</target>
+
+	<target name="eng">
+		<ant antfile="./build_mvn.xml" target="maven-build" inheritall="false">
+			<property name="profile" value="eng" />
+		</ant>
+	</target>
+
+	<target name="svil">
+		<ant antfile="./build_mvn.xml" target="maven-build" inheritall="false">
+			<property name="profile" value="svil" />
+		</ant>
+	</target>
+
+	<target name="prod">
+		<ant antfile="./build_mvn.xml" target="maven-build" inheritall="false">
+			<property name="profile" value="prod" />
+		</ant>
+	</target>
+
+
+
+</project>

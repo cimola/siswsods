@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:jboss-deployment-structure xmlns:p="urn:jboss:deployment-structure:1.1">
+	<deployment>
+		<exclusions>
+			<module name="org.apache.commons.logging" />
+			<module name="org.slf4j" />
+			<module name="org.slf4j.ext" />
+			<module name="org.slf4j.jcl-over-slf4j" />
+			<module name="org.slf4j.impl" />
+			<module name="org.apache.log4j" />
+		</exclusions>
+	</deployment>
+	<sub-deployment name="monitoraggio-ejb.jar">
+		<exclusions>
+			<module name="org.apache.commons.logging" />
+			<module name="org.slf4j" />
+			<module name="org.slf4j.ext" />
+			<module name="org.slf4j.jcl-over-slf4j" />
+			<module name="org.slf4j.impl" />
+			<module name="org.apache.log4j" />
+		</exclusions>
+	</sub-deployment>
+	<sub-deployment name="wsods-ejb.jar">
+		<exclusions>
+			<module name="org.apache.commons.logging" />
+			<module name="org.slf4j" />
+			<module name="org.slf4j.ext" />
+			<module name="org.slf4j.jcl-over-slf4j" />
+			<module name="org.slf4j.impl" />
+			<module name="org.apache.log4j" />
+		</exclusions>
+	</sub-deployment>
+	<sub-deployment name="wsods-monitoraggio-web.war">
+		<exclusions>
+			<module name="org.apache.commons.logging" />
+			<module name="org.slf4j" />
+			<module name="org.slf4j.ext" />
+			<module name="org.slf4j.jcl-over-slf4j" />
+			<module name="org.slf4j.impl" />
+			<module name="org.apache.log4j" />
+		</exclusions>
+	</sub-deployment>
+	<sub-deployment name="wsods-web.war">
+		<exclusions>
+			<module name="org.apache.commons.logging" />
+			<module name="org.slf4j" />
+			<module name="org.slf4j.ext" />
+			<module name="org.slf4j.jcl-over-slf4j" />
+			<module name="org.slf4j.impl" />
+			<module name="org.apache.log4j" />
+		</exclusions>
+	</sub-deployment>
+</p:jboss-deployment-structure>

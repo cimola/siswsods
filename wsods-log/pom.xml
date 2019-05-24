@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>it.toscana.regione.wsods</groupId>
+		<artifactId>wsods</artifactId>
+		<version>1.3.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>wsods-log</artifactId>
+	<name>wsods-log</name>
+	<packaging>jar</packaging>
+	<properties>
+		<complet.filter.file>${basedir}/../${file.filter}.properties</complet.filter.file>
+	</properties>
+	<build>
+		<resources>
+			<resource>
+				<directory>./src/main/java</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>log4j.xml</include>
+				</includes>
+				<targetPath>./</targetPath>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${jdk}</source>
+					<target>${jdk}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

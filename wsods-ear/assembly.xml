@@ -1,0 +1,35 @@
+<assembly>
+	<formats>
+		<format>tar.gz</format>
+		<format>zip</format>
+	</formats>
+	<files>
+    	<file>
+      		<source>../src/main/resources/data/conf.properties</source>
+      		<outputDirectory>/</outputDirectory>
+      		<filtered>true</filtered>
+    	</file>
+
+    	<file>
+      		<source>../src/main/resources/data/${env}/monitoraggio-wsods-conf.xml</source>
+      		<outputDirectory>/</outputDirectory>
+      		<filtered>true</filtered>
+    	</file>
+     	<file>
+      		<source>../src/main/resources/data/${env}/dbsis-web.jks</source>
+      		<outputDirectory>/</outputDirectory>
+      		<filtered>false</filtered>
+    	</file>
+     	<file>
+      		<source>../src/main/resources/data/${env}/.storepass</source>
+      		<outputDirectory>/</outputDirectory>
+      		<filtered>false</filtered>
+    	</file>
+     	<file>
+      		<source>../src/main/resources/data/${env}/.keypass</source>
+      		<outputDirectory>/</outputDirectory>
+      		<filtered>false</filtered>
+    	</file>
+
+	</files>
+</assembly>

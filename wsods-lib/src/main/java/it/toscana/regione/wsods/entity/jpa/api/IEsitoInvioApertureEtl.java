@@ -1,0 +1,6 @@
+package it.toscana.regione.wsods.entity.jpa.api;
+
+
+public interface IEsitoInvioApertureEtl extends IEsitoInvioEtl {
+
+}

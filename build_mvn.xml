@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project name="autocertificatore-maven" default="maven-build">
+
+
+	<taskdef resource="org/apache/maven/artifact/ant/antlib.xml">
+		<classpath>
+			<pathelement location="./libs/ant-lib/maven-ant-tasks-2.1.3.jar" />
+		</classpath>
+	</taskdef>
+
+
+
+	<target name="maven-build">
+		<mvn pom="pom.xml" failonerror="true">
+			<arg value="-Dmaven.test.skip=true" />
+			<arg value="clean" />
+			<arg value="install" />
+			<arg value="-P" />
+			<arg value="${profile}" />
+			<arg value="-e" />
+		</mvn>
+	</target>
+
+	<target name="maven-build-deploy">
+		<mvn pom="pom.xml" failonerror="true">
+			<arg value="-Dmaven.test.skip=true" />
+			<arg value="clean" />
+			<arg value="install" />
+			<arg value="deploy" />
+			<arg value="-P" />
+			<arg value="${profile}" />
+		</mvn>
+	</target>
+
+	<target name="maven-deploy">
+		<mvn pom="pom.xml" failonerror="true">
+			<arg value="-Dmaven.test.skip=true" />
+			<arg value="deploy" />
+			<arg value="-P" />
+			<arg value="${profile}" />
+		</mvn>
+	</target>
+</project>

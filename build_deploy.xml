@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<project name="autocertificatore-deploy" default="deploy-local">
+	
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="./src/main/resources/ant-libs/ant-contrib-1.0b3.jar"/>
+		</classpath>
+	</taskdef>
+
+	<target name="deploy-local">
+		
+	</target>
+	<target name="deploy-remote">
+		<tstamp>
+			<format property="deploy.time" pattern="yyyy.MM.dd.HH.mm" />
+		</tstamp>
+		<echo message="deploy.time: ${deploy.time}"/>
+		<echo message="host-deploy: ${host-deploy}"/>
+		<echo message="port-deploy: ${port-deploy}"/>
+		<echo message="username: ${username}"/>
+		<echo message="password: ${password}"/>
+		<echo message="path-pre-deploy: ${path-pre-deploy}"/>
+		<echo message="path-deploy: ${path-deploy}"/>
+		<echo message="local-path-origine: ${local-path-origine}"/>
+		<echo message="local-file: ${local-file}"/>
+		<echo message=""/>
+
+		<echo message=""/>
+		<echo message="rmovo un eventuale deploy precedente"/>
+		<sshexec host="${host-deploy}" port="${port-deploy}" username="${username}" password="${password}" trust="true" verbose="yes" command="rm -fr ${path-deploy}/${local-file}" />
+					
+		<echo message="creo la directory remota per il pre-deploy"/>
+		<sshexec host="${host-deploy}" port="${port-deploy}" username="${username}" password="${password}" trust="true" verbose="yes" command="mkdir ${path-pre-deploy}/${deploy.time}" />
+
+		<echo message=""/>
+		<echo message="copio il file nella directory di predeploy"/>
+		<scp todir="${username}@${host-deploy}:${path-pre-deploy}/${deploy.time}" port="${port-deploy}" password="${password}" trust="true">
+			<fileset dir="${local-path-origine}">
+				<include name="${local-file}" />
+			</fileset>
+		</scp>
+
+		<!--solo in caso di modifica al propieteario del file -->
+		<if>
+			<equals arg1="${cambia-nome}" arg2="yes" />
+			<then>
+				<echo message=""/>
+				<echo message="cambio il proprietario ed il gruppo del file che sto` deployando."/>
+				<sshexec host="${host-deploy}" port="${port-deploy}" username="${username}" password="${password}" trust="true" verbose="yes" command="chown ${user-name}:${group-name} ${path-pre-deploy}/${deploy.time}/${local-file}" />
+			</then>
+		</if>
+		<!--fine solo in caso di modifica al propieteario del file-->
+
+		<echo message=""/>
+		<echo message="faccio l'effettivo deploy"/>
+		<sshexec host="${host-deploy}" port="${port-deploy}" username="${username}" password="${password}" trust="true" verbose="yes" command="unzip ${path-pre-deploy}/${deploy.time}/${local-file} -d ${path-deploy}/${local-file}" />
+		<echo message=""/>
+		<echo message="cancello la directory precedentemente creata"/>
+		<sshexec host="${host-deploy}" port="${port-deploy}" username="${username}" password="${password}" trust="true" verbose="yes" command="rm -fr ${path-pre-deploy}/${deploy.time}" />
+
+	</target>
+</project>

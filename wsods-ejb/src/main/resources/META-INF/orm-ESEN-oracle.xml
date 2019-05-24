@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="1.0" xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+
+	<entity name="Esenzione" class="it.toscana.regione.wsods.entity.jpa.registry.impl.Esenzione" metadata-complete="false">
+		<table name="ESENZIONE" />
+		<sequence-generator name="seqGenEsenzione" sequence-name="@REGISTRY_ESE_WRITER_SEQUENCE_NAME@" allocation-size="1" />
+	</entity>
+
+</entity-mappings>

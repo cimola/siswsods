@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.regione.toscana.it/autocertificazioni-reddito/"
+	targetNamespace="http://www.regione.toscana.it/autocertificazioni-reddito/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.regione.toscana.it/autocertificazioni-reddito/"
+	elementFormDefault="qualified">
+
+	<xsd:annotation>
+		<xsd:documentation>
+			Messaggi scambiati per l'autocertificazione di esenzioni e reddito
+		</xsd:documentation>
+	</xsd:annotation>
+
+<!-- Scenario Lista Esenzioni -->
+
+	<xsd:element name="getEsenzioniAps2WsOdsRequest" type="GetEsenzioniAps2WsOdsRequest"/>
+	<xsd:element name="getEsenzioniAps2WsOdsResponse" type="GetEsenzioniAps2WsOdsResponse"/>
+	
+	<xsd:complexType name="GetEsenzioniAps2WsOdsRequest">
+		<xsd:sequence>
+			<xsd:element name="getEsenzioni" nillable="false" type="GetEsenzioniRequest"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetEsenzioniAps2WsOdsResponse">
+		<xsd:sequence>
+			<xsd:element name="getEsenzioni" nillable="false" type="GetEsenzioniResponse"/>
+		</xsd:sequence>
+	</xsd:complexType>	
+	
+	<xsd:complexType name="GetEsenzioniRequest">
+		<xsd:sequence>
+		    <xsd:element name="soggetto" minOccurs="1" maxOccurs="1" type="SoggettoType"/>
+		    <xsd:element name="ruolo" minOccurs="1" maxOccurs="3" type="RuoloSogettoType"/>
+		    <xsd:element name="tipoLista" minOccurs="1" maxOccurs="1" nillable="false" type="TipoListaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetEsenzioniResponse">
+		<xsd:sequence>
+			<xsd:element name="listaEsenzioni" minOccurs="0" maxOccurs="unbounded" type="EsenzioneType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<!-- Fine Scenario Lista Esenzioni -->
+
+<!-- Scenario Lista Autocertificazione -->
+	<xsd:element name="getListaWebApp2ApsRequest" type="GetListaWebApp2ApsRequest"/>
+	<xsd:element name="getListaWebApp2ApsResponse" type="GetListaWebApp2ApsResponse"/>
+	
+	<xsd:element name="getListaAps2WsOdsRequest" type="GetListaAps2WsOdsRequest"/>
+	<xsd:element name="getListaAps2WsOdsResponse" type="GetListaAps2WsOdsResponse"/>
+	
+
+	<xsd:complexType name="GetListaWebApp2ApsRequest">
+		<xsd:sequence>
+			<xsd:element name="getLista" nillable="false" type="GetListaRequest"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetListaWebApp2ApsResponse">
+		<xsd:sequence>
+			<xsd:element name="getLista" nillable="false" type="GetListaResponse"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+	
+	<xsd:complexType name="GetListaAps2WsOdsRequest">
+		<xsd:sequence>
+			<xsd:element name="getLista" nillable="false" type="GetListaRequest"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetListaAps2WsOdsResponse">
+		<xsd:sequence>
+			<xsd:element name="getLista" nillable="false" type="GetListaResponse"/>
+		</xsd:sequence>
+	</xsd:complexType>	
+	
+	
+	<xsd:complexType name="GetListaRequest">
+		<xsd:sequence>
+		    <xsd:element name="soggetto" nillable="false" type="SoggettoType"/>
+		    <xsd:element name="tipoLista" nillable="false" type="TipoListaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetListaResponse">
+		<xsd:sequence>
+			<xsd:element name="listaAutocertificazioni" minOccurs="0" maxOccurs="unbounded" type="AutocertificazioneType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<!-- Fine Scenario Lista Autocertificazione -->
+
+
+
+
+
+
+
+
+<!-- Scenario Download Autocertificazione
+	<xsd:element name="downloadWsOds2ApsRequest" type="DownloadWsOds2ApsRequest"/>
+	<xsd:element name="downloadWsOds2ApsResponse" type="DownloadWsOds2ApsResponse"/>
+	
+	<xsd:complexType name="DownloadWsOds2ApsRequest">
+		<xsd:sequence>
+
+		     <xsd:element name="id4sogei" nillable="false" type="ID4SOGEIType"/>
+
+			<xsd:element name="dataOraLimite" nillable="false" type="DataOraLimiteType_ddmmyyyyhhmm"/>
+			<xsd:element name="tipoAccesso" nillable="false" type="TipoAccessoType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="DownloadWsOds2ApsResponse">
+		<xsd:sequence>
+			<xsd:element name="codiceRegione" nillable="true" type="xsd:string"/>
+			<xsd:element name="codiceAsl" nillable="true" type="xsd:string"/>
+			<xsd:element name="dataOraLimite" nillable="false" type="DataOraLimiteType_ddmmyyyyhhmm"/>
+			<xsd:element name="tipoAccesso" nillable="false" type="TipoAccessoType"/>
+			<xsd:element minOccurs="0" maxOccurs="unbounded" name="listaAutocertificazioniSogei"  type="AutocertificazioneSogeiType"/> 
+			<xsd:element name="numeroRecordTrovati" nillable="false" type="xsd:int"/>  
+			<xsd:element name="diagnostico" nillable="true" type="xsd:string"/>
+			<xsd:element name="esito" nillable="false" type="xsd:int"/>  
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="AutocertificazioneSogeiType">
+		<xsd:sequence>
+			<xsd:element name="annoEsenzione" nillable="true" type="xsd:integer"/>
+			<xsd:element name="flagStato" nillable="true" type="xsd:string"/>
+			<xsd:element name="codAsl" nillable="true" type="xsd:string"/>
+			<xsd:element name="data" nillable="true" type="xsd:string"/>
+			<xsd:element name="autocertificazione" nillable="false" type="AutocertificazioneType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="TipoAccessoType">
+		<xsd:annotation>
+			<xsd:documentation>codici esito ammessi</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Inserimenti" />
+			<xsd:enumeration value="Variazioni" />
+			<xsd:enumeration value="Tutte" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DataOraLimiteType_ddmmyyyyhhmm">
+ 	
+ 		<xsd:restriction base="xsd:string">
+ 			<xsd:pattern value="^([0-3]{1}[0-9]{1}[0-1]{1}[0-9]{1}[0-9]{4}[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1})$"/>
+ 		</xsd:restriction>
+ 	</xsd:simpleType>
+ 	
+	
+ Fine Scenario Download Autocertificazione -->
+
+
+
+
+
+
+
+
+<!-- Scenario Upload Autocertificazione -->
+	<xsd:element name="uploadWebApp2ApsRequest" type="UploadWebApp2ApsRequest"/>
+	<xsd:element name="uploadWebApp2ApsResponse" type="UploadWebApp2ApsResponse"/>
+	
+	<xsd:element name="uploadAps2WsOdsRequest" type="UploadAps2WsOdsRequest"/>
+	<xsd:element name="uploadWAps2WsOdsResponse" type="UploadAps2WsOdsResponse"/>
+	
+	<xsd:complexType name="UploadAps2WsOdsRequest">
+		<xsd:sequence>
+			<xsd:element name="autocertificazione" nillable="false" type="AutocertificazioneType"/>
+			<xsd:element name="metadatiSOGEI" nillable="false" type="MetadatiSOGEIType"/>
+			<xsd:element name="attivita" nillable="false" type="AttivitaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="UploadAps2WsOdsResponse">
+		<xsd:sequence>
+			<xsd:element name="esito" nillable="false" type="EsitoType"/>
+			<xsd:element name="descrizione" nillable="false" type="xsd:string"/>
+			<xsd:element name="codiceErrore" nillable="true" type="CodiceErroreType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="UploadWebApp2ApsRequest">
+		<xsd:sequence>
+		    <xsd:element name="id4sogei" nillable="false" type="ID4SOGEIType"/>
+			<xsd:element name="autocertificazione" nillable="false" type="AutocertificazioneType"/>
+			<xsd:element name="attivita" nillable="false" type="AttivitaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="UploadWebApp2ApsResponse">
+		<xsd:sequence>
+			<xsd:element name="esito" nillable="false" type="EsitoType"/>
+			<xsd:element name="descrizione" nillable="false" type="xsd:string"/>
+			<xsd:element name="codiceErrore" nillable="true" type="CodiceErroreType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="MetadatiSOGEIType">
+		<xsd:sequence>
+			<xsd:element name="id4sogei" nillable="false" type="ID4SOGEIType"/>
+		    <xsd:element name="dataInsRec" nillable="true" type="xsd:string"/>
+		    <xsd:element name="dataAggRec" nillable="true" type="xsd:string"/>
+		    <xsd:element name="diagnostico" nillable="true" type="xsd:string"/>
+			<xsd:element name="esito" type="xsd:int"/>   
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="AttivitaType">
+		<xsd:annotation>
+			<xsd:documentation>attivita' ammesse da questo messaggio</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="INSERISCI" />
+			<xsd:enumeration value="CANCELLA" />
+			<xsd:enumeration value="REVOCA" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	
+<!-- Fine Scenario Upload Autocertificazione -->
+
+
+
+<!-- Scenario Stampa Autocertificazione -->
+	<xsd:element name="stampaTotem2ApsRequest" type="StampaTotem2ApsRequest"/>
+	<xsd:element name="stampaTotem2ApsResponse" type="StampaTotem2ApsResponse"/>
+	
+	<xsd:complexType name="StampaTotem2ApsRequest">
+		<xsd:sequence>
+			<xsd:element name="autocertificazione" nillable="false" type="AutocertificazioneType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="StampaTotem2ApsResponse">
+		<xsd:sequence>
+			<xsd:element name="PDF" type="xsd:base64Binary" nillable="false" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>	
+	
+<!-- Fine Scenario Upload Autocertificazione -->
+
+	
+	<!-- Autocertificazione / Esenzione -->
+	<xsd:complexType name="AutocertificazioneType">
+		<xsd:sequence>
+		    <xsd:element name="protocollo" nillable="true" type="xsd:string"/>
+		    <xsd:element name="statoEsenzione" nillable="true" type="StatoEsenzioneType"/>
+		    <xsd:element name="codiceEsenzione" nillable="false" type="CodiceEsenzioneType"/>
+		    <xsd:element name="titoloDichiarante" nillable="false" type="TitoloDichiaranteType"/>
+		    <xsd:element name="dichiarante" nillable="false" type="SoggettoType"/>
+		    <xsd:element name="titolare" nillable="false" type="SoggettoType"/>
+		    <xsd:element name="beneficiario" nillable="false" type="SoggettoType"/>
+		    <xsd:element name="note" nillable="true" type="xsd:string"/>
+			<xsd:element name="comuneCentroImpiego" nillable="true" type="xsd:string"/>
+		    <xsd:element name="dataInizio" nillable="false" type="xsd:date"/>
+		    <xsd:element name="dataFine" nillable="false" type="xsd:date"/>
+		    <xsd:element name="dataFineOld" nillable="false" type="xsd:date"/>
+			<xsd:element name="sorgente" nillable="false" type="SorgenteAutocertificazioneType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="EsenzioneType">
+		<xsd:sequence>
+		    <xsd:element name="protocollo" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+		    <xsd:element name="codiceEsenzione" minOccurs="1" maxOccurs="1" type="CodiceEsenzioneType"/>
+		    <xsd:element name="titoloDichiarante" minOccurs="0" maxOccurs="1" type="TitoloDichiaranteType"/>
+		    <xsd:element name="dichiarante" minOccurs="0" maxOccurs="1" type="SoggettoType"/>
+		    <xsd:element name="titolare" minOccurs="0" maxOccurs="1" type="SoggettoType"/>
+		    <xsd:element name="beneficiario" minOccurs="1" maxOccurs="1" type="SoggettoType"/>
+		    <xsd:element name="note" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+			<xsd:element name="comuneCentroImpiego" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+		    <xsd:element name="dataInizio" minOccurs="1" maxOccurs="1" type="xsd:date"/>
+		    <xsd:element name="dataFine" minOccurs="1" maxOccurs="1" type="xsd:date"/>
+		    <xsd:element name="dataFineOld" minOccurs="0" maxOccurs="1" type="xsd:date"/>
+			<xsd:element name="sorgente" minOccurs="1" maxOccurs="1" type="SorgenteAutocertificazioneType"/>
+			<xsd:element name="flagTiplogia" minOccurs="0" maxOccurs="1" type="FlagTipologiaType"/>
+			<xsd:element name="dataAggiornamento" minOccurs="1" maxOccurs="1" type="xsd:dateTime"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="StatoEsenzioneType">
+		<xsd:annotation>
+			<xsd:documentation>stato esenzioni ammessi</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ATTIVA" />
+			<xsd:enumeration value="ANNULLATA" />
+			<xsd:enumeration value="REVOCATA" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CodiceEsenzioneType">
+		<xsd:annotation>
+			<xsd:documentation>codici esenzioni ammessi</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="E01" />
+			<xsd:enumeration value="E02" />
+			<xsd:enumeration value="E03" />
+			<xsd:enumeration value="E04" />
+			<xsd:enumeration value="ERA" />
+			<xsd:enumeration value="ERB" />
+			<xsd:enumeration value="ERC" />
+			<xsd:enumeration value="E90" />
+			<xsd:enumeration value="E91" />
+			<xsd:enumeration value="E92" />
+			<xsd:enumeration value="E93" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+ 	<xsd:simpleType name="TitoloDichiaranteType">
+		<xsd:annotation>
+			<xsd:documentation>titoli ammessi</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="INTERESSATO" />
+			<xsd:enumeration value="TUTORE" />
+			<xsd:enumeration value="GENITORE" />
+			<xsd:enumeration value="AMMINISTRATORE" />
+			<xsd:enumeration value="CURATORE" />
+			<xsd:enumeration value="PARENTE" />
+			<xsd:enumeration value="DELEGA" />
+		</xsd:restriction>
+	</xsd:simpleType>
+ 	
+ 	
+	<xsd:simpleType name="SorgenteAutocertificazioneType">
+		<xsd:annotation>
+			<xsd:documentation>tipologia lista</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="WEBAPP" />
+			<xsd:enumeration value="TOTEM" />
+			<xsd:enumeration value="FLUSSO" />
+			<xsd:enumeration value="PROROGHE" />
+			<xsd:enumeration value="MAPP" />
+			<xsd:enumeration value="ALTRO" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="FlagTipologiaType">
+		<xsd:annotation>
+			<xsd:documentation>flag disponibili</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FAER" />
+			<xsd:enumeration value="CERD" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+ 	
+	<!-- fine Autocertificazione / Esenzione -->
+	
+	
+	<xsd:simpleType name="RuoloSogettoType">
+		<xsd:annotation>
+			<xsd:documentation>ruoli possibili di un soggetto</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BENEFICIARIO" />
+			<xsd:enumeration value="TITOLARE" />
+			<xsd:enumeration value="DICHIARANTE" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	 <xsd:simpleType name="TipoListaType">
+		<xsd:annotation>
+			<xsd:documentation>tipologia lista</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CONSOLIDATO" />
+			<xsd:enumeration value="STORICO" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CodiceErroreType">
+		<xsd:annotation>
+			<xsd:documentation>codici errori ammessi</xsd:documentation>
+		</xsd:annotation>
+		<!-- TODO da inserire la lista completa dei codici di errore gestiti  -->
+		
+		<xsd:restriction base="xsd:string">
+			<!-- generati dal Invio  delle autocetificazioni a sogei -->
+			<xsd:enumeration value="7001" />
+			<xsd:enumeration value="7002" /> <!-- 	CODICE FISCALE ASSISTITO FORMALMENTE ERRATO  -->                                                         
+			<xsd:enumeration value="7003" /> <!--  	CODICE FISCALE ASSISTITO NON PRESENTE IN ARCHIVIO  -->                                                   
+			<xsd:enumeration value="7004" /> <!--  	ASSISTITO NON ASSISTITO NELLA ASL -->                                                                   
+			<xsd:enumeration value="7005" /> <!--  	CODICE FISCALE DEL TITOLARE FORMALMENTE ERRATO -->                                                      
+			<xsd:enumeration value="7006" /> <!--  	CODICE FISCALE DEL TITOLARE NON PRESENTE IN ARCHIVIO -->                                                
+			<xsd:enumeration value="7007" /> <!--  	CODICE FISCALE DEL DICHIARANTE FORMALMENTE ERRATO -->                                                   
+			<xsd:enumeration value="7008" /> <!--  	CODICE FISCALE DEL DICHIARANTE NON PRESENTE IN ARCHIVIO -->                                             
+			<xsd:enumeration value="7009" /> <!--  	TITOLO DEL DICHIARANTE NON VALIDO -->                                                                   
+			<xsd:enumeration value="7010" /> <!--  	CODICE ESENZIONE NON VALIDO -->                                                                         
+			<xsd:enumeration value="7011" /> <!--  	DATA INIZIO VALIDITA' FORMALMENTE ERRATA -->                                                            
+			<xsd:enumeration value="7012" /> <!-- 	DATA INIZIO VALIDITA' NON VALIDA -->                                                                    
+			<xsd:enumeration value="7013" /> <!-- 	DATA FINE VALIDITA' FORMALMENTE ERRATA -->                                                              
+			<xsd:enumeration value="7014" /> <!-- 	DATA FINE VALIDITA' NON VALIDA -->                                                                      
+			<xsd:enumeration value="7015" /> <!-- 	ESISTE GIA' UN'AUTOCERTIFICAZIONE IN STATO DI BOZZA -->                                                 
+			<xsd:enumeration value="7016" /> <!-- 	ESISTE GIA' UN'AUTOCERTIFICAZIONE VALIDATA -->                                                          
+			<xsd:enumeration value="7017" /> <!-- 	CERTIFICATO GIÀ ESISTENTE -->                                           
+			<xsd:enumeration value="7018" /> <!-- 	ETÀ NON VALIDA PER L'ESENZIONE E01 -->                                                         
+			<xsd:enumeration value="7019" /> <!-- 	DATA FINE VALIDITÀ NON VALIDA PER L'ESENZIONE E01 -->                                               
+			<xsd:enumeration value="7020" /> <!-- 	ETÀ NON VALIDA PER L'ESENZIONE E04 -->                                                                
+			<xsd:enumeration value="7021" /> <!-- 	IL TITOLARE DELL'ESENZIONE E02 DEVE AVERE ALMENO 16 ANNI -->                                          
+			<xsd:enumeration value="7022" /> <!-- 	IL DICHIARANTE DEVE AVERE ALMENO 18 ANNI -->                                                          
+			<xsd:enumeration value="7023" /> <!-- 	IL TITOLARE DELL'ESENZIONE E03 DEVE AVERE ALMENO 65 ANNI -->                                            
+			<xsd:enumeration value="7024" /> <!-- 	ERRORE DURANTE LA VALIDAZIONE -->                                                                       
+			<xsd:enumeration value="7025" /> <!-- 	REGIONE NON ATTIVA -->                                                                                  
+			<xsd:enumeration value="7026" /> <!-- 	IL CAMPO NOTE NON PUO' CONTENERE PIU' DI 50 CARATTERI -->                                               
+			<xsd:enumeration value="7027" /> <!-- 	CODICE ESENZIONE NON VALIDO PER LA REGIONE -->                                                          
+			<xsd:enumeration value="7028" /> <!-- 	ETA' DELL'ESENTE NON VALIDA PER L'ESENZIONE SELEZIONATA -->                                             
+			<xsd:enumeration value="7029" /> <!-- 	DATA DI FINE VALIDITÀ’ESENZIONE SUPERIORE ALL'ETA' VALIDITA' DEL REQUISITO -->                    
+			<xsd:enumeration value="7030" /> <!-- 	ETA' DEL TITOLARE NON VALIDA PER L'ESENZIONE SELEZIONATA -->                                            
+			<xsd:enumeration value="7031" /> <!-- 	PER L'ESENZIONE SELEZIONATA IL TITOLARE DEVE COINCIDERE CON IL SOGGETTO ESENTE -->                      
+			<xsd:enumeration value="7032" /> <!-- 	DATA FINE VALIDITÀ ESENZIONE NON INFERIORE AL LIMITE DI ETÀ PER IL REQUISITO DI DISOCCUPATO --> 
+			<xsd:enumeration value="7033" /> <!-- 	IL CODICE FISCALE DEL DICHIARANTE DEVE ESSERE UGUALE AL CODICE FISCALE ASSISTITO ESENTE -->
+			<xsd:enumeration value="7034" />
+			<xsd:enumeration value="7035" />
+			<xsd:enumeration value="7036" />
+			<xsd:enumeration value="7037" />
+			<xsd:enumeration value="7038" />
+			<xsd:enumeration value="7039" />
+			<xsd:enumeration value="7040" /> <!-- 	LA DATA DI FINE VALIDITA’ E’ MAGGIORE DELLA DATA MASSIMA CONSENTITA PER QUESTA ESENZIONE -->
+			<xsd:enumeration value="7041" /> <!-- 	LA DATA DI FINE VALIDITA’ DEVE ESSERE UGUALE ALLA DATA CONSENTITA PER QUESTA ESENZIONE -->
+			<xsd:enumeration value="7042" /> <!-- 	LA DATA DI INIZIO VALIDITA’ E’ MINORE DELLA DATA MINIMACONSENTITA PER QUESTA ESENZIONE -->
+			<xsd:enumeration value="7043" /> <!-- 	LA DATA DI FINE VALIDITA’ DEVE ESSERE MAGGIORE O UGUALE ALLA DATA ODIERNA -->
+			<xsd:enumeration value="7044" /> <!-- LA DATA DI INIZIO VALIDITA’ PUO’ ESSERE RETROATTIVA AL MASSIMO DI 30 GIORNI -->
+			<xsd:enumeration value="7045" /> <!-- TITOLO DEL DICHIARANTE INCOMPATIBILE CON IL SOGGETTO ESENTE -->
+			<xsd:enumeration value="7046" />
+			<xsd:enumeration value="7047" />
+			<xsd:enumeration value="7048" />
+			<xsd:enumeration value="7049" />
+			<xsd:enumeration value="7050" /> <!-- ERRORE GENERICO -->
+			<xsd:enumeration value="7051" />
+			<xsd:enumeration value="7052" />
+			<xsd:enumeration value="7053" />
+			<xsd:enumeration value="7054" />
+			<xsd:enumeration value="7055" />
+			<xsd:enumeration value="7056" />
+			<xsd:enumeration value="7057" />
+			<xsd:enumeration value="7058" />
+			<xsd:enumeration value="7059" />
+			<xsd:enumeration value="7060" /> <!-- IL CAMPO USERID E' ASSENTE -->
+			<xsd:enumeration value="7061" /> <!-- IL CAMPO CODICE ESENZIONE E' ASSENTE -->
+			<xsd:enumeration value="7062" /> <!-- IL CAMPO NOTE E' ASSENTE -->
+			<xsd:enumeration value="7063" /> <!-- IL CAMPO NOTE NON PUO' CONTENERE PIU' DI 50 CARATTERI -->
+			<xsd:enumeration value="7064" /> <!-- IL CAMPO TITOLO DEL DICHIARANTE NON E' PRESENTE -->
+			<xsd:enumeration value="7065" /> <!-- IL CAMPO TITOLODICHIARANTE NON E' VALIDO -->
+			<xsd:enumeration value="7066" /> <!-- IL CODICE FISCALE DEL DICHIARANTE DEVE ESSERE UGUALE AL CODICE FISCALE ASSISTITO ESENTE -->
+			<xsd:enumeration value="7067" /> <!-- CFDICHIARANTE NON PRESENTE -->
+			<xsd:enumeration value="7068" /> <!-- CFDICHIARANTE NON VALIDO -->
+			<xsd:enumeration value="7069" /> <!-- CFDICHIARANTE ERRATO -->
+			<xsd:enumeration value="7070" /> <!-- CFTITOLARE NON PRESENTE -->
+			<xsd:enumeration value="7071" /> <!-- CFTITOLARE NON VALIDO -->
+			<xsd:enumeration value="7072" /> <!-- CFTITOLARE ERRATO -->
+			<xsd:enumeration value="7073" /> <!-- CFASSISTITO NON PRESENTE -->
+			<xsd:enumeration value="7074" /> <!-- CFASSISTITO NON VALIDO -->
+			<xsd:enumeration value="7075" /> <!-- CFASSISTITO ERRATO -->
+			<xsd:enumeration value="7076" /> <!-- DATAINIZIO NON PRESENTE -->
+			<xsd:enumeration value="7077" /> <!-- DATAINIZIO ERRATA -->
+			<xsd:enumeration value="7078" /> <!-- DATAFINE NON PRESENTE -->
+			<xsd:enumeration value="7079" /> <!-- DATAFINE ERRATA -->
+			<xsd:enumeration value="7080" /> <!-- DATAINIZIO DOPO DATAFINE -->
+			<xsd:enumeration value="7081" /> <!-- CFASSISTITO_DIVERSO_CFTITOLARE -->
+			<xsd:enumeration value="7082" /> <!-- IL CAMPO NOTE NON PUO' CONTENERE PIU' DI 50 CARATTERI -->
+			<xsd:enumeration value="7083" /> <!-- IL CAMPO NOTE NON PUO' CONTENERE PIU' DI 50 CARATTERI -->
+			<xsd:enumeration value="7084" /> <!-- IL CAMPO NOTE NON PUO' CONTENERE PIU' DI 50 CARATTERI -->
+			<xsd:enumeration value="7085" /> <!-- UTENTE NON RICONOSCIUTO -->
+			<xsd:enumeration value="7086" /> <!-- UTENTE NON AUTORIZZATO -->
+			<xsd:enumeration value="7087" /> <!-- REGIONE UTENTE DIVERSA DA CERTIFICATO -->
+			<xsd:enumeration value="7088" /> <!-- CFDICHIARANTE NON PRESENTE IN ARCHIVIO -->
+			<xsd:enumeration value="7089" /> <!-- CODICECATASTALE NON PRESENTE -->
+			<xsd:enumeration value="7090" /> <!-- CFTITOLARE NON PRESENTE IN ARCHIVIO -->
+			<xsd:enumeration value="7091" /> <!-- TOKEN UTENTE NON PRESENTE -->
+			<xsd:enumeration value="7092" /> <!-- TOKEN UTENTE FORMALMENTE ERRATO -->
+			<xsd:enumeration value="7093" /> <!-- DATI NON PRESENTI -->
+			<xsd:enumeration value="7094" /> <!-- CF ASSISTITO NON PRESENTE IN ACHIVIO -->
+			<xsd:enumeration value="7095" />
+			<xsd:enumeration value="7096" />
+			<xsd:enumeration value="7097" />
+			<xsd:enumeration value="7098" />
+			<xsd:enumeration value="7099" /> <!-- ELABORAZIONE CORRETTAMENTE EFFETTUATA -->
+			<!-- FINE generati dal Invio  delle autocetificazioni a sogei -->
+			
+			<!-- generati dalla chiusura delle autocetificazioni su sogei -->
+			<xsd:enumeration value="7100" />
+			<xsd:enumeration value="7101" />
+			<xsd:enumeration value="7102" />
+			<xsd:enumeration value="7103" />
+			<xsd:enumeration value="7104" />
+			<xsd:enumeration value="7105" />
+			<xsd:enumeration value="7106" />
+			<xsd:enumeration value="7107" />
+			<xsd:enumeration value="7108" />
+			<xsd:enumeration value="7109" />
+			<xsd:enumeration value="7110" />
+			<xsd:enumeration value="7111" />
+			<xsd:enumeration value="7112" />
+			<xsd:enumeration value="7113" />
+			<xsd:enumeration value="7114" />
+			<xsd:enumeration value="7115" />
+			<xsd:enumeration value="7116" />
+			<xsd:enumeration value="7117" />
+			<xsd:enumeration value="7118" />
+			<xsd:enumeration value="7119" />
+			<xsd:enumeration value="7120" />
+			<xsd:enumeration value="7121" />
+			<xsd:enumeration value="7122" />
+			<xsd:enumeration value="7123" />
+			<xsd:enumeration value="7124" />
+			<xsd:enumeration value="7125" />
+			<xsd:enumeration value="7126" />
+			<xsd:enumeration value="7127" />
+			<xsd:enumeration value="7128" />
+			<xsd:enumeration value="7129" />
+			<xsd:enumeration value="7130" />
+			<xsd:enumeration value="7131" />
+			<xsd:enumeration value="7132" />
+			<xsd:enumeration value="7133" />
+			<xsd:enumeration value="7134" />
+			<xsd:enumeration value="7135" />
+			<xsd:enumeration value="7136" />
+			<xsd:enumeration value="7137" />
+			<xsd:enumeration value="7138" />
+			<xsd:enumeration value="7139" />
+			<xsd:enumeration value="7140" />
+			<xsd:enumeration value="7141" />
+			<xsd:enumeration value="7142" />
+			<xsd:enumeration value="7143" />
+			<xsd:enumeration value="7144" />
+			<xsd:enumeration value="7145" />
+			<xsd:enumeration value="7146" />
+			<xsd:enumeration value="7147" />
+			<xsd:enumeration value="7148" />
+			<xsd:enumeration value="7149" />
+			<xsd:enumeration value="7150" /> <!-- ERRORE GENERICO -->
+			<xsd:enumeration value="7151" />
+			<xsd:enumeration value="7152" />
+			<xsd:enumeration value="7153" /> <!-- AUTOCERTIFICAZIONE NON TROVATA -->
+			<xsd:enumeration value="7154" />
+			<xsd:enumeration value="7155" /> <!-- REGIONE NON ATTIVA -->
+			<xsd:enumeration value="7156" />
+			<xsd:enumeration value="7157" />
+			<xsd:enumeration value="7158" />
+			<xsd:enumeration value="7159" />
+			<xsd:enumeration value="7160" /> <!-- IL CAMPO USERID E' ASSENTE -->
+			<xsd:enumeration value="7161" /> <!-- IL CAMPO CODICE ESENZIONE E' ASSENTE -->
+			<xsd:enumeration value="7162" /> <!-- IL CAMPO PROTOCOLLO E' ASSENTE -->
+			<xsd:enumeration value="7163" /> <!-- IL CAMPO ASSISITITO NON E' PRESENTE -->
+			<xsd:enumeration value="7164" />
+			<xsd:enumeration value="7165" />
+			<xsd:enumeration value="7166" />
+			<xsd:enumeration value="7167" />
+			<xsd:enumeration value="7168" />
+			<xsd:enumeration value="7169" />
+			<xsd:enumeration value="7170" />
+			<xsd:enumeration value="7171" /> <!-- NESSUNA AUTOCERTIFICAZIONE VALIDA DA CHIUDERE -->
+			<xsd:enumeration value="7172" />
+			<xsd:enumeration value="7173" />
+			<xsd:enumeration value="7174" />
+			<xsd:enumeration value="7175" />
+			<xsd:enumeration value="7176" />
+			<xsd:enumeration value="7177" />
+			<xsd:enumeration value="7178" />
+			<xsd:enumeration value="7179" />
+			<xsd:enumeration value="7180" />
+			<xsd:enumeration value="7181" />
+			<xsd:enumeration value="7182" />
+			<xsd:enumeration value="7183" />
+			<xsd:enumeration value="7184" />
+			<xsd:enumeration value="7185" /> <!-- UTENTE NON RICONOSCIUTO -->
+			<xsd:enumeration value="7186" /> <!-- UTENTE NON AUTORIZZATO -->
+			<xsd:enumeration value="7187" /> <!-- REGIONE UTENTE DIVERSA DA CERTIFICATO -->
+			<xsd:enumeration value="7188" />
+			<xsd:enumeration value="7189" />
+			<xsd:enumeration value="7190" />
+			<xsd:enumeration value="7191" /> <!-- TOKEN UTENTE NON PRESENTE -->
+			<xsd:enumeration value="7192" /> <!-- TOKEN UTENTE FORMALMENTE ERRATO -->
+			<xsd:enumeration value="7193" /> <!-- DATI NON PRESENTI -->
+			<xsd:enumeration value="7194" />
+			<xsd:enumeration value="7195" />
+			<xsd:enumeration value="7196" />
+			<xsd:enumeration value="7197" />
+			<xsd:enumeration value="7198" />
+			<xsd:enumeration value="7199" /> <!-- ELABORAZIONE COMPLETATA CORRETTAMENTE -->
+			<!-- FINE generati dalla chiusura delle autocetificazioni su sogei -->
+			
+			<!-- generati dal Download delle autocertificazioni -->
+			<xsd:enumeration value="7201" /> <!-- IL CAMPO USERID E' ASSENTE -->
+			<xsd:enumeration value="7202" /> <!-- IL CAMPO TOKEN E' ASSENTE -->
+			<xsd:enumeration value="7203" /> <!-- IL CAMPO DATAORALIMITE E' ASSENTE -->
+			<xsd:enumeration value="7204" /> <!-- IL CAMPO TIPOACCESSO E' ASSENTE -->
+			<xsd:enumeration value="7205" /> <!-- IL CAMPO DATAORALIMITE DEVE ESSERE NEL FORMATO GGMMAAAAHH -->
+			<xsd:enumeration value="7206" /> <!-- IL CAMPO DATAORALIMITE DEVE CONTENERE SOLO NUMERI -->
+			<xsd:enumeration value="7207" /> <!-- IL CAMPO DATAORALIMITE NON PUO' ESSERE SUCCESSIVO ALLA DATA ODIERNA -->
+			<xsd:enumeration value="7208" /> <!-- IL CAMPO USERID E' FORMALMENTE ERRATO -->
+			<xsd:enumeration value="7209" /> <!-- IL CAMPO TIPOACCESSO E' ASSENTE -->
+			<xsd:enumeration value="7210" /> <!-- IL CAMPO TIPOACCESSO DEVE ESSERE IMPOSTATO CON UNO DEI SEGUENTI VALORI: I,V -->
+			<xsd:enumeration value="7211" /> <!-- UTENTE NON AUTORIZZATO -->
+			<xsd:enumeration value="7212" /> <!-- CODICE FISCALE NON TROVATO -->
+			<xsd:enumeration value="7213" />
+			<xsd:enumeration value="7214" />
+			<xsd:enumeration value="7215" />
+			<xsd:enumeration value="7216" />
+			<xsd:enumeration value="7217" />
+			<xsd:enumeration value="7218" />
+			<xsd:enumeration value="7219" />
+			<xsd:enumeration value="7220" />
+			<xsd:enumeration value="7221" />
+			<xsd:enumeration value="7222" />
+			<xsd:enumeration value="7223" />
+			<xsd:enumeration value="7224" />
+			<xsd:enumeration value="7225" />
+			<xsd:enumeration value="7226" />
+			<xsd:enumeration value="7227" />
+			<xsd:enumeration value="7228" />
+			<xsd:enumeration value="7229" />
+			<xsd:enumeration value="7230" />
+			<xsd:enumeration value="7231" />
+			<xsd:enumeration value="7232" />
+			<xsd:enumeration value="7233" />
+			<xsd:enumeration value="7234" />
+			<xsd:enumeration value="7235" />
+			<xsd:enumeration value="7236" />
+			<xsd:enumeration value="7237" />
+			<xsd:enumeration value="7238" />
+			<xsd:enumeration value="7239" />
+			<xsd:enumeration value="7240" />
+			<xsd:enumeration value="7241" />
+			<xsd:enumeration value="7242" />
+			<xsd:enumeration value="7243" />
+			<xsd:enumeration value="7244" />
+			<xsd:enumeration value="7245" />
+			<xsd:enumeration value="7246" />
+			<xsd:enumeration value="7247" />
+			<xsd:enumeration value="7248" />
+			<xsd:enumeration value="7249" />
+			<xsd:enumeration value="7250" />
+			<xsd:enumeration value="7251" /><!-- ERRORE DB -->
+			<xsd:enumeration value="7252" />
+			<xsd:enumeration value="7253" />
+			<xsd:enumeration value="7254" />
+			<xsd:enumeration value="7255" />
+			<xsd:enumeration value="7256" />
+			<xsd:enumeration value="7257" />
+			<xsd:enumeration value="7258" />
+			<xsd:enumeration value="7259" />
+			<xsd:enumeration value="7260" />
+			<xsd:enumeration value="7261" />
+			<xsd:enumeration value="7262" />
+			<xsd:enumeration value="7263" />
+			<xsd:enumeration value="7264" />
+			<xsd:enumeration value="7265" />
+			<xsd:enumeration value="7266" />
+			<xsd:enumeration value="7267" />
+			<xsd:enumeration value="7268" />
+			<xsd:enumeration value="7269" />
+			<xsd:enumeration value="7270" />
+			<xsd:enumeration value="7271" />
+			<xsd:enumeration value="7272" />
+			<xsd:enumeration value="7273" />
+			<xsd:enumeration value="7274" />
+			<xsd:enumeration value="7275" />
+			<xsd:enumeration value="7276" />
+			<xsd:enumeration value="7277" />
+			<xsd:enumeration value="7278" />
+			<xsd:enumeration value="7279" />
+			<xsd:enumeration value="7280" />
+			<xsd:enumeration value="7281" />
+			<xsd:enumeration value="7282" />
+			<xsd:enumeration value="7283" />
+			<xsd:enumeration value="7284" />
+			<xsd:enumeration value="7285" />
+			<xsd:enumeration value="7286" />
+			<xsd:enumeration value="7287" />
+			<xsd:enumeration value="7288" />
+			<xsd:enumeration value="7289" />
+			<xsd:enumeration value="7290" />
+			<xsd:enumeration value="7291" />
+			<xsd:enumeration value="7292" />
+			<xsd:enumeration value="7293" />
+			<xsd:enumeration value="7294" />
+			<xsd:enumeration value="7295" />
+			<xsd:enumeration value="7296" />
+			<xsd:enumeration value="7297" />
+			<xsd:enumeration value="7298" />
+			<xsd:enumeration value="7299" /><!-- ELABORAZIONE CORRETTAMENTE EFFETTUATA -->
+			<!-- FINE  generati dal Download delle autocertificazioni -->
+			<!-- Da 1000 a 1999 generati da wsods -->
+			<xsd:enumeration value="1000" /> <!-- generico -->
+			<!-- Da 2000 a 2999 generati da apsese -->
+			<xsd:enumeration value="2000" /> <!-- ERRORE GENERICO -->
+			<xsd:enumeration value="2001" /> <!-- ERRORE VALIDAZIONE XML -->
+			<xsd:enumeration value="2002" /> <!-- ERRORE COMUNICAZIONE CON INVIO AUTOCERTIFICAZIONI SOGEI -->
+			<xsd:enumeration value="2003" /> <!-- ERRORE COMUNICAZIONE CON REVOCA AUTOCERTIFICAZIONI SOGEI -->
+			<xsd:enumeration value="2004" /> <!-- ESITO RISPOSTA NEGATIVO SERVIZIO SOGEI INVIO AUTOCERTIFICAZIONI REDDITO -->
+			<xsd:enumeration value="2005" /> <!-- ESITO RISPOSTA NEGATIVO SERVIZIO SOGEI REVOCA AUTOCERTIFICAZIONI REDDITO -->
+			<xsd:enumeration value="2006" /> <!-- DATI INSUFFICIENTI -->
+			<xsd:enumeration value="2007" /> <!-- ERRORE DURANTE LA COMUNICAZIONE CON ANAGRAFE HL7 -->
+			<!-- Da 3000 a 3999 generati da autocertificazione-reddito -->
+			<xsd:enumeration value="3000" /> <!-- generico -->
+		</xsd:restriction>
+		<!-- -->
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="EsitoType">
+		<xsd:annotation>
+			<xsd:documentation>codici esito ammessi</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="OK" />
+			<xsd:enumeration value="KO" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="ID4SOGEIType">
+		<xsd:sequence>
+		     <xsd:element name="userId" nillable="true" type="xsd:string"/>
+		     <xsd:element name="utenteToken" nillable="true" type="xsd:string"/> 
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="SoggettoType">
+		<xsd:choice>
+		     <xsd:element name="idUniversale" nillable="true" type="IdUniversaleType"/>
+		     <xsd:element name="codiceFiscale" nillable="true" type="CodiceFiscaleType"/> 
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="IdUniversaleType">
+ 		<xsd:restriction base="xsd:string">
+ 			<xsd:length value="24" />
+ 		</xsd:restriction>
+ 	</xsd:simpleType>
+	
+ 	<xsd:simpleType name="CodiceFiscaleType">
+ 		<xsd:restriction base="xsd:string">
+ 			<xsd:length value="16" />
+ 			<!-- <xsd:pattern value="^([A-Za-z]{6}[0-9lmnpqrstuvLMNPQRSTUV]{2}[abcdehlmnoprstABCDEHLMNOPRST]{1}[0-9lmnpqrstuvLMNPQRSTUV]{2}[A-Za-z]{1}[0-9lmnpqrstuvLMNPQRSTUV]{3}[A-Za-z]{1})$"/>-->
+ 		</xsd:restriction>
+ 	</xsd:simpleType>
+
+
+</xsd:schema>

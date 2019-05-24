@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="SDMwrapper-debug" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="@LOG-BASE-DIR@/SDMwrapper-debug.log" />
+		<param name="MaxFileSize" value="5120KB" />
+		<param name="Threshold" value="DEBUG" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] [%c] (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+	<appender name="monitoraggio-debug" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="@LOG-BASE-DIR@/monitoraggio-debug.log" />
+		<param name="MaxFileSize" value="5120KB" />
+		<param name="Threshold" value="DEBUG" />
+		<param name="MaxBackupIndex" value="1" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] [%c] (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+	<appender name="wsods-performance" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="@LOG-BASE-DIR@/wsods-performance.log" />
+		<param name="MaxFileSize" value="5120KB" />
+		<param name="Threshold" value="DEBUG" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+	<appender name="wsods-debug" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="@LOG-BASE-DIR@/wsods-debug.log" />
+		<param name="MaxFileSize" value="5120KB" />
+		<param name="Threshold" value="DEBUG" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] [%c] (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="wsods-info" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="@LOG-BASE-DIR@/wsods-info.log" />
+		<param name="MaxFileSize" value="5120KB" />
+		<param name="Threshold" value="INFO" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] [%c] (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="wsods-error" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="@LOG-BASE-DIR@/wsods-error.log" />
+		<param name="MaxFileSize" value="5120KB" />
+		<param name="Threshold" value="ERROR" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] [%c] (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+	<!---->
+	<category name="it.toscana.regione.eng" additivity="false">
+		<priority value="debug" />
+		<appender-ref ref="SDMwrapper-debug" />
+	</category>
+	<!---->
+	<category name="it.toscana.regione.monitoraggio" additivity="false">
+      <priority value="debug" />
+  	  <appender-ref ref="monitoraggio-debug" />
+   	</category>
+	<category name="WSODS-DAO-PERFORMANCE" additivity="false">
+      <priority value="debug" />
+  	  <appender-ref ref="wsods-performance" />
+   	</category>
+	<category name="it.toscana.regione.wsods" additivity="false">
+		<priority value="debug" />
+		<appender-ref ref="wsods-debug" />
+		<appender-ref ref="wsods-info" />
+		<appender-ref ref="wsods-error" />
+	</category>
+
+	<root>
+		<priority value="debug" />
+		<appender-ref ref="wsods-debug" />
+	</root>
+
+</log4j:configuration>

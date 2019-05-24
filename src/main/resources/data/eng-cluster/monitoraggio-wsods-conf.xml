@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ms:MonitorService
+    nomeEar="@NOME_EAR@"
+    nomeEjb="wsods-ejb"
+    applicationServerVersion="jboss-as-7"
+    timerTimeout="30"
+    MonitorType="S"
+    urlWs="@MONITORAGGIO_CONF_URL_WS@"
+    urlJsp="@MONITORAGGIO_CONF_URL_JSP@"
+    xmlns:ms="http://regione.toscana.it/hdisrt/MonitorServiceConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://regione.toscana.it/hdisrt/MonitorServiceConfig MonitorServiceConfig.xsd">
+    <ms:MonitorSteps>
+<!--
+     <ms:MonitorStep>
+            <ms:ResourceName>Servizio Sis Data Manager</ms:ResourceName>
+            <ms:OkCustomMessage>servizio Sis Data Manager raggiungibile.</ms:OkCustomMessage>
+            <ms:ErrorCustomMessage>servizio Sis Data Manager non raggiungibile.</ms:ErrorCustomMessage>
+            <ms:WarnCustomMessage>raggiungibilita' servizio Sis Data Manager non verificata.</ms:WarnCustomMessage>
+            <ms:StepType>WS</ms:StepType>
+            <ms:Class>it.toscana.regione.monitoraggio.provider.impl.WSMonitorEntryProvider</ms:Class>
+            <ms:url>@SISDATAMANAGER_URL@</ms:url>
+            <ms:connectionTimeout>6</ms:connectionTimeout>
+            <ms:httpBasicEnabled>false</ms:httpBasicEnabled>
+            
+            <ms:keystorePath>@SISDATAMANAGER_SSL_KEY_STORE@</ms:keystorePath>
+            <ms:keystorePassword>@SISDATAMANAGER_SSL_KEY_STORE_PWD@</ms:keystorePassword>
+            <ms:privatekeyPassword>@SISDATAMANAGER_SSL_KEY_STORE_PWD@</ms:privatekeyPassword>
+            <ms:keystoreType>JKS</ms:keystoreType>
+            
+            <ms:trustorePath>@SISDATAMANAGER_SSL_KEY_STORE@</ms:trustorePath>
+            <ms:trustorePassword>@SISDATAMANAGER_SSL_KEY_STORE_PWD@</ms:trustorePassword>
+            <ms:trustoreType>JKS</ms:trustoreType>
+        </ms:MonitorStep>
+-->
+        <ms:MonitorStep>
+            <ms:ResourceName>EntryProvider jpa wsods</ms:ResourceName>
+            <ms:OkCustomMessage>EntryProvider jpa wsods utilizzabile</ms:OkCustomMessage>
+            <ms:ErrorCustomMessage>EntryProvider jpa wsods inutilizzabile</ms:ErrorCustomMessage>
+            <ms:WarnCustomMessage>EntryProvider jpa wsods non verificata</ms:WarnCustomMessage>
+            <ms:StepType>JPA</ms:StepType>
+            <ms:Class>it.toscana.regione.monitoraggio.provider.impl.JPAMonitorEntryProvider</ms:Class>
+            <ms:Jpql>SELECT count(t) FROM it.toscana.regione.wsods.entity.jpa.impl.AutocertificazioneTmp t</ms:Jpql>
+            <ms:EntityManagerProviderJndiName>EntityManagerProviderWsods</ms:EntityManagerProviderJndiName>
+        </ms:MonitorStep>
+<!-- 
+        <ms:MonitorStep>
+            <ms:ResourceName>EntryProvider jpa registry ese writer</ms:ResourceName>
+            <ms:OkCustomMessage>EntryProvider jpa registry ese writer utilizzabile</ms:OkCustomMessage>
+            <ms:ErrorCustomMessage>EntryProvider jpa registry ese writer inutilizzabile</ms:ErrorCustomMessage>
+            <ms:WarnCustomMessage>EntryProvider jpa registry ese writer non verificata</ms:WarnCustomMessage>
+            <ms:StepType>JPA</ms:StepType>
+            <ms:Class>it.toscana.regione.monitoraggio.provider.impl.JPAMonitorEntryProvider</ms:Class>
+            <ms:Jpql>SELECT count(t) FROM it.toscana.regione.wsods.entity.jpa.registry.impl.Esenzione t</ms:Jpql>
+            <ms:EntityManagerProviderJndiName>EntityManagerProviderRegistryEseWriter</ms:EntityManagerProviderJndiName>
+        </ms:MonitorStep>
+        <ms:MonitorStep>
+            <ms:ResourceName>EntryProvider jpa registry anag reader</ms:ResourceName>
+            <ms:OkCustomMessage>EntryProvider jpa registry anag reader utilizzabile</ms:OkCustomMessage>
+            <ms:ErrorCustomMessage>EntryProvider jpa registry anag reader inutilizzabile</ms:ErrorCustomMessage>
+            <ms:WarnCustomMessage>EntryProvider jpa registry anag reader non verificata</ms:WarnCustomMessage>
+            <ms:StepType>JPA</ms:StepType>
+            <ms:Class>it.toscana.regione.monitoraggio.provider.impl.JPAMonitorEntryProvider</ms:Class>
+            <ms:Jpql>SELECT count(t) FROM it.toscana.regione.wsods.entity.jpa.registry.impl.RimEntityId t</ms:Jpql>
+            <ms:EntityManagerProviderJndiName>EntityManagerProviderRegistryAnagReader</ms:EntityManagerProviderJndiName>
+        </ms:MonitorStep>
+-->
+    </ms:MonitorSteps>
+</ms:MonitorService>

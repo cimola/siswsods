@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>it.toscana.regione.wsods</groupId>
+		<artifactId>wsods</artifactId>
+		<version>1.3.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>wsods-lib</artifactId>
+	<name>wsods-lib</name>
+	<packaging>jar</packaging>
+	<properties>
+		<complet.filter.file>${basedir}/../${file.filter}.properties</complet.filter.file>
+	</properties>
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${jdk}</source>
+					<target>${jdk}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+	
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${release.javaee-api.lib}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>${release.persistence-api.lib}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		 	 <groupId>org.jboss</groupId>
+		  	<artifactId>jbossws-client</artifactId>
+			<version>${release.jbossws-client-2.lib}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.apache.cxf</groupId>
+		  <artifactId>cxf-rt-transports-http</artifactId>
+		  <version>${release.cxf-rt-transports-http.lib}</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.apache.cxf</groupId>
+		  <artifactId>cxf-rt-frontend-jaxws</artifactId>
+		  <version>${release.cxf-rt-frontend-jaxws.lib}</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.apache.cxf</groupId>
+		  <artifactId>cxf-api</artifactId>
+		  <version>${release.cxf-api.lib}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.toscana.regione.common.pil</groupId>
+			<artifactId>platform-indipendent-lookup</artifactId>
+			<version>${release.pil.lib}</version>
+			<scope>provided</scope>
+		</dependency>
+	
+		<dependency>
+			<groupId>it.toscana.regione.autocertificazionireddito.entity.jaxb</groupId>
+			<artifactId>autocertificazioni-reddito-sogei-jaxb</artifactId>
+			<version>${release.autocertificazioni-reddito-sogei-jaxb.lib}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>it.toscana.regione.autocertificazionireddito.entity.jaxb</groupId>
+			<artifactId>autocertificazioni-reddito-rt-jaxb</artifactId>
+			<version>${release.autocertificazioni-reddito-rt-jaxb.lib}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>it.toscana.regione.certificazionireddito.entity.jaxb</groupId>
+			<artifactId>certificazioni-reddito-sogei-jaxb</artifactId>
+			<version>${release.certificazioni-reddito-sogei-jaxb.lib}</version>
+			<scope>provided</scope>
+		</dependency>	
+		<!--START SISDATAMANAGER LIB -->
+		<dependency>
+			<groupId>it.toscana.regione.eng.common.rest</groupId>
+			<artifactId>rest.client</artifactId>
+			<version>${release.it.toscana.regione.eng.common.rest.rest.client}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>it.toscana.regione.eng.common.rest</groupId>
+			<artifactId>rest.response.entity</artifactId>
+			<version>${release.it.toscana.regione.eng.common.rest.rest.response.entity}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>it.toscana.regione.eng.common</groupId>
+			<artifactId>AnagraficheRestUtility</artifactId>
+			<version>${release.it.toscana.regione.eng.common.AnagraficheRestUtility}</version>
+			<scope>compile</scope>
+		</dependency>
+		<!--END SISDATAMANAGER LIB -->			
+	</dependencies>
+	<developers>
+		<developer>
+			<id>cciurli</id>
+			<name>Carlo Ciurli</name>
+			<email>carlo.ciurli@eng.it</email>
+			<organization>Engineering</organization>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
+	</developers>
+</project>

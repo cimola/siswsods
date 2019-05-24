@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ms:MonitorService
+    nomeEar="@NOME_EAR@"
+    nomeEjb="wsods-ejb"
+    applicationServerVersion="jboss-as-7"
+    timerTimeout="30"
+    MonitorType="S"
+    urlWs="@MONITORAGGIO_CONF_URL_WS@"
+    urlJsp="@MONITORAGGIO_CONF_URL_JSP@"
+    xmlns:ms="http://regione.toscana.it/hdisrt/MonitorServiceConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://regione.toscana.it/hdisrt/MonitorServiceConfig MonitorServiceConfig.xsd">
+    <ms:MonitorSteps>
+        <ms:MonitorStep>
+            <ms:ResourceName>Servizio download di sogei</ms:ResourceName>
+            <ms:OkCustomMessage>servizio di download di sogei risulta raggiungibile.</ms:OkCustomMessage>
+            <ms:ErrorCustomMessage>servizio di download di sogei risulta non raggiungibile.</ms:ErrorCustomMessage>
+            <ms:WarnCustomMessage>raggiungibilita' di download di sogei risulta non verificata.</ms:WarnCustomMessage>
+            <ms:StepType>WS</ms:StepType>
+            <ms:Class>it.toscana.regione.monitoraggio.provider.impl.WSMonitorEntryProvider</ms:Class>
+            <ms:url>@SOGEI_DOWNLOAD_ENDPOINT@?wsdl</ms:url>
+            <ms:connectionTimeout>6</ms:connectionTimeout>
+            <ms:httpBasicEnabled>false</ms:httpBasicEnabled>
+            
+            <ms:keystorePath>@SOGEI_DOWNLOAD_SSL_KEY_STORE@</ms:keystorePath>
+            <ms:keystorePassword>@SOGEI_DOWNLOAD_SSL_KEY_STORE_PWD@</ms:keystorePassword>
+            <ms:privatekeyPassword>@SOGEI_DOWNLOAD_SSL_KEY_STORE_PWD@</ms:privatekeyPassword>
+            <ms:keystoreType>@SOGEI_DOWNLOAD_SSL_KEY_STORE_TYPE@</ms:keystoreType>
+            
+            <ms:trustorePath>@SOGEI_DOWNLOAD_SSL_TRUST_STORE@</ms:trustorePath>
+            <ms:trustorePassword>@SOGEI_DOWNLOAD_SSL_TRUST_STORE_PWD@</ms:trustorePassword>
+            <ms:trustoreType>@SOGEI_DOWNLOAD_SSL_TRUST_STORE_TYPE@</ms:trustoreType>
+        </ms:MonitorStep>
+        <ms:MonitorStep>
+            <ms:ResourceName>Servizio upload apsese</ms:ResourceName>
+            <ms:OkCustomMessage>servizio di upload su apsese risulta raggiungibile.</ms:OkCustomMessage>
+            <ms:ErrorCustomMessage>servizio di upload su apsese risulta non raggiungibile.</ms:ErrorCustomMessage>
+            <ms:WarnCustomMessage>raggiungibilita' di upload su apsese risulta non verificata.</ms:WarnCustomMessage>
+            <ms:StepType>WS</ms:StepType>
+            <ms:Class>it.toscana.regione.monitoraggio.provider.impl.WSMonitorEntryProvider</ms:Class>
+            <ms:url>@APS_UPLOAD_ENDPOINT@?wsdl</ms:url>
+            <ms:connectionTimeout>6</ms:connectionTimeout>
+            <ms:httpBasicEnabled>false</ms:httpBasicEnabled>
+            
+            <ms:keystorePath>@APS_UPLOAD_SSL_KEY_STORE@</ms:keystorePath>
+            <ms:keystorePassword>@APS_UPLOAD_SSL_KEY_STORE_PWD@</ms:keystorePassword>
+            <ms:privatekeyPassword>@APS_UPLOAD_SSL_KEY_STORE_PWD@</ms:privatekeyPassword>
+            <ms:keystoreType>@APS_UPLOAD_SSL_KEY_STORE_TYPE@</ms:keystoreType>
+            
+            <ms:trustorePath>@APS_UPLOAD_SSL_TRUST_STORE@</ms:trustorePath>
+            <ms:trustorePassword>@APS_UPLOAD_SSL_TRUST_STORE_PWD@</ms:trustorePassword>
+            <ms:trustoreType>@APS_UPLOAD_SSL_TRUST_STORE_TYPE@</ms:trustoreType>
+        </ms:MonitorStep>
+        <ms:MonitorStep>
+            <ms:ResourceName>EntryProvider jpa wsods</ms:ResourceName>
+            <ms:OkCustomMessage>EntryProvider jpa wsods utilizzabile</ms:OkCustomMessage>
+            <ms:ErrorCustomMessage>EntryProvider jpa wsods inutilizzabile</ms:ErrorCustomMessage>
+            <ms:WarnCustomMessage>EntryProvider jpa wsods non verificata</ms:WarnCustomMessage>
+            <ms:StepType>JPA</ms:StepType>
+            <ms:Class>it.toscana.regione.monitoraggio.provider.impl.JPAMonitorEntryProvider</ms:Class>
+            <ms:Jpql>SELECT count(t) FROM it.toscana.regione.wsods.entity.jpa.impl.AutocertificazioneTmp t</ms:Jpql>
+            <ms:EntityManagerProviderJndiName>EntityManagerProviderWsods</ms:EntityManagerProviderJndiName>
+        </ms:MonitorStep>
+    </ms:MonitorSteps>
+</ms:MonitorService>

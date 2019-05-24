@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="wsods" transaction-type="JTA">
+	
+		<jta-data-source>@JTA_DATASOURCE@</jta-data-source>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.AutocertificazioneTmp</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.AutocertificazioneScartate</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.DownloadAutocertificazione</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.CertificazioneTmp</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.CertificazioneScartate</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.DownloadCertificazione</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.EsenzioniFasce</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.RicevutaDownloadSogei</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.UploadAutocertificazione</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.WsodsSoapTracking</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.RecuperoDownloadSogei</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.IdUniDaAggiornare</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.TracciaObsolescenzaIdUni</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.RCTCodBelfStati</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.RCTCodBelfComuni</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.AutocertificazioneApertureEtl</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.AutocertificazioneChiusureEtl</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.EsitoInvioApertureEtl</class>
+		<class>it.toscana.regione.wsods.entity.jpa.impl.EsitoInvioChiusureEtl</class>
+		<properties>
+			<property name="hibernate.show_sql" value="@SHOW_SQL@" />
+			<property name="hibernate.default_schema" value="@SCHEMA_DB@" />
+			<property name="hibernate.dialect" value="@DIALECT@" />
+			<property name="hibernate.connection.isolation" value="2" />
+		</properties>
+		
+	</persistence-unit>
+	
+<!-- rimosso in seguito allo spegnimento della scrittura su registry
+	<persistence-unit name="registry-anag-reader" transaction-type="JTA">
+		<jta-data-source>@REGISTRY_ANAG_READER_JTA_DATASOURCE@</jta-data-source>
+		 <class>it.toscana.regione.wsods.entity.jpa.registry.impl.RimEntityId</class>
+		<properties>
+			<property name="hibernate.show_sql" value="@REGISTRY_ANAG_READER_SHOW_SQL@" />
+			<property name="hibernate.default_schema" value="@REGISTRY_ANAG_READER_SCHEMA_DB@" />
+			<property name="hibernate.dialect" value="@REGISTRY_ANAG_READER_DIALECT@" />
+			<property name="hibernate.connection.isolation" value="2" />
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="registry-ese-writer" transaction-type="JTA">
+		<jta-data-source>@REGISTRY_ESE_WRITER_JTA_DATASOURCE@</jta-data-source>
+		<mapping-file>/META-INF/orm-ESEN-oracle.xml</mapping-file>
+		  <class>it.toscana.regione.wsods.entity.jpa.registry.impl.Esenzione</class>
+		<class>it.toscana.regione.wsods.entity.jpa.registry.impl.Evento</class>
+		<properties>
+			<property name="hibernate.show_sql" value="@REGISTRY_ESE_WRITER_SHOW_SQL@" />
+			<property name="hibernate.default_schema" value="@REGISTRY_ESE_WRITER_SCHEMA_DB@" />
+			<property name="hibernate.dialect" value="@REGISTRY_ESE_WRITER_DIALECT@" />
+			<property name="hibernate.connection.isolation" value="2" />
+		</properties>
+	</persistence-unit>
+-->
+</persistence>

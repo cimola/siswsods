@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ms:MonitorService
+    nomeEar="@NOME_EAR@"
+    nomeEjb="wsods-ejb"
+    applicationServerVersion="jboss-as-7"
+    timerTimeout="30"
+    MonitorType="S"
+    urlWs="@MONITORAGGIO_CONF_URL_WS@"
+    urlJsp="@MONITORAGGIO_CONF_URL_JSP@"
+    xmlns:ms="http://regione.toscana.it/hdisrt/MonitorServiceConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://regione.toscana.it/hdisrt/MonitorServiceConfig MonitorServiceConfig.xsd">
+    <ms:MonitorSteps>
+        <ms:MonitorStep>
+            <ms:ResourceName>EntryProvider jpa wsods</ms:ResourceName>
+            <ms:OkCustomMessage>EntryProvider jpa wsods utilizzabile</ms:OkCustomMessage>
+            <ms:ErrorCustomMessage>EntryProvider jpa wsods inutilizzabile</ms:ErrorCustomMessage>
+            <ms:WarnCustomMessage>EntryProvider jpa wsods non verificata</ms:WarnCustomMessage>
+            <ms:StepType>JPA</ms:StepType>
+            <ms:Class>it.toscana.regione.monitoraggio.provider.impl.JPAMonitorEntryProvider</ms:Class>
+            <ms:Jpql>SELECT count(t) FROM it.toscana.regione.wsods.entity.jpa.impl.AutocertificazioneTmp t</ms:Jpql>
+            <ms:EntityManagerProviderJndiName>EntityManagerProviderWsods</ms:EntityManagerProviderJndiName>
+        </ms:MonitorStep>
+    </ms:MonitorSteps>
+</ms:MonitorService>
