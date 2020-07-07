@@ -1,0 +1,12 @@
+-- DDL Statements for Schemas
+------------------------------------------------
+
+-- Running the DDL below will explicitly create a schema in the
+-- new database that corresponds to an implicitly created schema
+-- in the original database.
+
+CREATE SCHEMA "ESENZIONIFASCE";
+
+
+
+------------------------------------------------

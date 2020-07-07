@@ -68,7 +68,7 @@ public class Conf {
 			if (positiveValue!=null && positiveValue.trim().length()>0){
 				ceck = positiveValue.trim().toLowerCase();
 			}
-			return val !=null && val.trim().length()>0 && ceck.equals(val.toLowerCase());
+			return val !=null && val.trim().length()>0 && ceck.equals(val.trim().toLowerCase());
 		}
 	}
 	private synchronized static boolean isEnabled(final String key){
@@ -186,11 +186,13 @@ public class Conf {
 	public synchronized static String getSogeiDownloadAction(){ return get(Prop.SOGEI_DOWNLOAD_ACTION); }
 	public synchronized static String getSogeiDownloadOperation(){ return get(Prop.SOGEI_DOWNLOAD_OPERATION); }
 	public synchronized static long getSogeiDownloadWsTimeout(){ return getLong(Prop.SOGEI_DOWNLOAD_WS_TIMEOUT,120000L); }
+	public synchronized static int getSogeiDownloadWsTimeout_int(){ return getInt(Prop.SOGEI_DOWNLOAD_WS_TIMEOUT,120000); }
 
 	public synchronized static boolean getSogeiDownloadSslEnable(){ return isEnabled(Prop.SOGEI_DOWNLOAD_SSL_ENABLE); }
 	public synchronized static String getSogeiDownloadSslKeyStore(){ return get(Prop.SOGEI_DOWNLOAD_SSL_KEY_STORE); }
 	public synchronized static String getSogeiDownloadSslKeyStoreType(){ return get(Prop.SOGEI_DOWNLOAD_SSL_KEY_STORE_TYPE); }
 	public synchronized static String getSogeiDownloadSslKeyStorePwd(){ return get(Prop.SOGEI_DOWNLOAD_SSL_KEY_STORE_PWD); }
+	public synchronized static String getSogeiDownloadSslCertAlias(){ return get(Prop.SOGEI_DOWNLOAD_SSL_CERT_ALIAS); }
 	public synchronized static String getSogeiDownloadSslTrustStore(){ return get(Prop.SOGEI_DOWNLOAD_SSL_TRUST_STORE); }
 	public synchronized static String getSogeiDownloadSslTrustStoreType(){ return get(Prop.SOGEI_DOWNLOAD_SSL_TRUST_STORE_TYPE); }
 	public synchronized static String getSogeiDownloadSslTrustStorePwd(){ return get(Prop.SOGEI_DOWNLOAD_SSL_TRUST_STORE_PWD); }
@@ -208,11 +210,13 @@ public class Conf {
 	public synchronized static String getSogeiDownloadActionCert(){ return get(Prop.SOGEI_DOWNLOAD_ACTION_CERT); }
 	public synchronized static String getSogeiDownloadOperationCert(){ return get(Prop.SOGEI_DOWNLOAD_OPERATION_CERT); }
 	public synchronized static long getSogeiDownloadWsTimeoutCert(){ return getLong(Prop.SOGEI_DOWNLOAD_WS_TIMEOUT_CERT,120000L); }
+	public synchronized static int getSogeiDownloadWsTimeoutCert_int(){ return getInt(Prop.SOGEI_DOWNLOAD_WS_TIMEOUT_CERT,120000); }
 
 	public synchronized static boolean getSogeiDownloadSslEnableCert(){ return isEnabled(Prop.SOGEI_DOWNLOAD_SSL_ENABLE_CERT); }
 	public synchronized static String getSogeiDownloadSslKeyStoreCert(){ return get(Prop.SOGEI_DOWNLOAD_SSL_KEY_STORE_CERT); }
 	public synchronized static String getSogeiDownloadSslKeyStoreTypeCert(){ return get(Prop.SOGEI_DOWNLOAD_SSL_KEY_STORE_TYPE_CERT); }
 	public synchronized static String getSogeiDownloadSslKeyStorePwdCert(){ return get(Prop.SOGEI_DOWNLOAD_SSL_KEY_STORE_PWD_CERT); }
+	public synchronized static String getSogeiDownloadSslCertAliasCert(){ return get(Prop.SOGEI_DOWNLOAD_SSL_CERT_ALIAS_CERT); }
 	public synchronized static String getSogeiDownloadSslTrustStoreCert(){ return get(Prop.SOGEI_DOWNLOAD_SSL_TRUST_STORE_CERT); }
 	public synchronized static String getSogeiDownloadSslTrustStoreTypeCert(){ return get(Prop.SOGEI_DOWNLOAD_SSL_TRUST_STORE_TYPE_CERT); }
 	public synchronized static String getSogeiDownloadSslTrustStorePwdCert(){ return get(Prop.SOGEI_DOWNLOAD_SSL_TRUST_STORE_PWD_CERT); }
@@ -227,6 +231,7 @@ public class Conf {
 	public synchronized static String getApsUploadAction(){ return get(Prop.APS_UPLOAD_ACTION); }
 	public synchronized static String getApsUploadOperation(){ return get(Prop.APS_UPLOAD_OPERATION); }
 	public synchronized static long getApsUploadWsTimeout(){ return getLong(Prop.APS_UPLOAD_WS_TIMEOUT,60000L); }
+	public synchronized static int getApsUploadWsTimeout_int(){ return getInt(Prop.APS_UPLOAD_WS_TIMEOUT,60000); }
 
 	public synchronized static boolean getApsUploadSslEnable(){ return isEnabled(Prop.APS_UPLOAD_SSL_ENABLE); }
 	public synchronized static String getApsUploadSslKeyStore(){ return get(Prop.APS_UPLOAD_SSL_KEY_STORE); }

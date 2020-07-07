@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>it.toscana.regione.wsods</groupId>
 		<artifactId>wsods</artifactId>
-		<version>1.3.0</version>
+		<version>1.4.1</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>wsods-lib</artifactId>

@@ -1,0 +1,13 @@
+-- This CLP file was created using DB2LOOK Version "11.1" 
+-- Timestamp: Wed Jul  1 12:29:35 CEST 2020
+-- Database Name: DSPSODS        
+-- Database Manager Version: DB2/AIX64 Version 11.1.4.4    
+-- Database Codepage: 1208
+-- Database Collating Sequence is: IDENTITY
+-- Alternate collating sequence(alt_collate): null
+-- varchar2 compatibility(varchar2_compat): OFF
+
+
+CONNECT TO DSPSODS;
+
+-----------------------------------

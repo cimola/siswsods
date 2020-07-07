@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>it.toscana.regione.wsods</groupId>
 	<artifactId>wsods</artifactId>
-	<version>1.3.0</version>
+	<version>1.4.1</version>
 	<name>wsods</name>
 	<packaging>pom</packaging>
 	<modules>
@@ -35,7 +35,7 @@
 		
 		<release.wsdl4j.lib>1.6.2</release.wsdl4j.lib>
 		
-		<release.monitoraggio.lib>jdk-1.6-v2.3</release.monitoraggio.lib>
+		<release.monitoraggio.lib>jdk-1.6-v2.4.1</release.monitoraggio.lib>
 		<release.pil.lib>jdk1.6-v1.0</release.pil.lib>
 		<release.autocertificazioni-reddito-sogei-jaxb.lib>2.8.2</release.autocertificazioni-reddito-sogei-jaxb.lib>
 		<release.autocertificazioni-reddito-rt-jaxb.lib>2.8.2</release.autocertificazioni-reddito-rt-jaxb.lib>
@@ -47,16 +47,14 @@
 		<release.javaee-api.lib>6.0</release.javaee-api.lib>
 		<release.persistence-api.lib>1.0</release.persistence-api.lib>
 		<release.javax.servlet-api.lib>3.0.1</release.javax.servlet-api.lib>
-		<release.commons-beanutils>1.9.2</release.commons-beanutils>
-		<release.json-rpc>1.0</release.json-rpc>
 		
 		<release.org.jboss.resteasy.resteasy-jaxrs.lib>2.3.6.Final</release.org.jboss.resteasy.resteasy-jaxrs.lib>
 		<release.org.jboss.resteasy.resteasy-jackson-provider.lib>2.2.1.GA</release.org.jboss.resteasy.resteasy-jackson-provider.lib>
 		<!-- SIS DATA MANAGER -->
-		<release.it.toscana.regione.eng.common.rest.rest.client>jdk1.6-1.5.7</release.it.toscana.regione.eng.common.rest.rest.client>
-		<release.it.toscana.regione.eng.common.rest.rest.response.entity>jdk1.6-1.75.0</release.it.toscana.regione.eng.common.rest.rest.response.entity>
+		<release.it.toscana.regione.eng.common.rest.rest.client>jdk1.6-1.5.1</release.it.toscana.regione.eng.common.rest.rest.client>
+		<release.it.toscana.regione.eng.common.rest.rest.response.entity>jdk1.6-1.25.0</release.it.toscana.regione.eng.common.rest.rest.response.entity>
 		<release.it.toscana.regione.eng.common.AnagraficheRestUtility>1.0</release.it.toscana.regione.eng.common.AnagraficheRestUtility>
-		
+		<release.webservice-tool.lib>jdk-1.6-v2.5.0</release.webservice-tool.lib>
 		<context.root>wsods</context.root>
 		<complet.filter.file>${basedir}/${file.filter}.properties</complet.filter.file>
 	</properties>
@@ -86,18 +84,6 @@
 			<version>${release.log4j.lib}</version>
 			<type>jar</type>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.metaparadigm</groupId>
-			<artifactId>json-rpc</artifactId>
-			<version>${release.json-rpc}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-beanutils</groupId>
-			<artifactId>commons-beanutils</artifactId>
-			<version>${release.commons-beanutils}</version>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 	<distributionManagement>

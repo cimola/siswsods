@@ -46,9 +46,9 @@
             <ms:privatekeyPassword>@SOGEI_DOWNLOAD_SSL_KEY_STORE_PWD@</ms:privatekeyPassword>
             <ms:keystoreType>@SOGEI_DOWNLOAD_SSL_KEY_STORE_TYPE@</ms:keystoreType>
             
-            <ms:trustorePath>@SOGEI_DOWNLOAD_SSL_TRUST_STORE@</ms:trustorePath>
-            <ms:trustorePassword>@SOGEI_DOWNLOAD_SSL_TRUST_STORE_PWD@</ms:trustorePassword>
-            <ms:trustoreType>@SOGEI_DOWNLOAD_SSL_TRUST_STORE_TYPE@</ms:trustoreType>
+            <ms:trustorePath>@SOGEI_DOWNLOAD_SSL_KEY_STORE@</ms:trustorePath>
+            <ms:trustorePassword>@SOGEI_DOWNLOAD_SSL_KEY_STORE_PWD@</ms:trustorePassword>
+            <ms:trustoreType>@SOGEI_DOWNLOAD_SSL_KEY_STORE_TYPE@</ms:trustoreType>
         </ms:MonitorStep>
         <ms:MonitorStep>
             <ms:ResourceName>Servizio upload apsese</ms:ResourceName>
@@ -66,9 +66,9 @@
             <ms:privatekeyPassword>@APS_UPLOAD_SSL_KEY_STORE_PWD@</ms:privatekeyPassword>
             <ms:keystoreType>@APS_UPLOAD_SSL_KEY_STORE_TYPE@</ms:keystoreType>
             
-            <ms:trustorePath>@APS_UPLOAD_SSL_TRUST_STORE@</ms:trustorePath>
-            <ms:trustorePassword>@APS_UPLOAD_SSL_TRUST_STORE_PWD@</ms:trustorePassword>
-            <ms:trustoreType>@APS_UPLOAD_SSL_TRUST_STORE_TYPE@</ms:trustoreType>
+            <ms:trustorePath>@APS_UPLOAD_SSL_KEY_STORE@</ms:trustorePath>
+            <ms:trustorePassword>@APS_UPLOAD_SSL_KEY_STORE_PWD@</ms:trustorePassword>
+            <ms:trustoreType>@APS_UPLOAD_SSL_KEY_STORE_TYPE@</ms:trustoreType>
         </ms:MonitorStep>
         <ms:MonitorStep>
             <ms:ResourceName>EntryProvider jpa wsods</ms:ResourceName>

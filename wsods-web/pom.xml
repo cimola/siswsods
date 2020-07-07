@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>it.toscana.regione.wsods</groupId>
 		<artifactId>wsods</artifactId>
-		<version>1.3.0</version>
+		<version>1.4.1</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>wsods-web</artifactId>
@@ -79,32 +79,28 @@
 			<artifactId>monitoraggio-jaxb</artifactId>
 			<version>${release.monitoraggio.lib}</version>
 			<type>jar</type>
-			<scope>system</scope>
-      		<systemPath>${basedir}/../libs/compiler-libs/monitoraggio-jaxb-${release.monitoraggio.lib}.jar</systemPath>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>it.toscana.regione.monitoraggio</groupId>
 			<artifactId>monitoraggio-util</artifactId>
 			<version>${release.monitoraggio.lib}</version>
 			<type>jar</type>
-			<scope>system</scope>
-      		<systemPath>${basedir}/../libs/compiler-libs/monitoraggio-util-${release.monitoraggio.lib}.jar</systemPath>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>it.toscana.regione.monitoraggio</groupId>
 			<artifactId>monitoraggio-ejb</artifactId>
 			<version>${release.monitoraggio.lib}</version>
 			<type>ejb</type>
-			<scope>system</scope>
-      		<systemPath>${basedir}/../libs/compiler-libs/monitoraggio-ejb-${release.monitoraggio.lib}.jar</systemPath>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>it.toscana.regione.monitoraggio</groupId>
 			<artifactId>monitoraggio-web</artifactId>
 			<version>${release.monitoraggio.lib}</version>
 			<type>war</type>
-			<scope>system</scope>
-      		<systemPath>${basedir}/../libs/compiler-libs/monitoraggio-web-${release.monitoraggio.lib}.war</systemPath>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>it.toscana.regione.wsods</groupId>

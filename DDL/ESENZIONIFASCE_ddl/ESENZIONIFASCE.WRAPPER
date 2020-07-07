@@ -1,0 +1,14 @@
+-- DDL Statements for WRAPPER
+-- ---------------------------
+CREATE WRAPPER "DB2"
+   LIBRARY 'libdb2drda.a' 
+   OPTIONS (DB2_FENCED  'N'
+     );
+
+CREATE WRAPPER "INFORMIX"
+   LIBRARY 'libdb2informix.a' 
+   OPTIONS (DB2_FENCED  'N'
+     );
+
+
+-- ---------------------------

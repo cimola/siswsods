@@ -54,10 +54,12 @@ public class Prop {
 	public static final String SOGEI_DOWNLOAD_SSL_KEY_STORE = "sogei.download.ssl.key.store";
 	public static final String SOGEI_DOWNLOAD_SSL_KEY_STORE_TYPE = "sogei.download.ssl.key.store.type";
 	public static final String SOGEI_DOWNLOAD_SSL_KEY_STORE_PWD = "sogei.download.ssl.key.store.pwd";
+	public static final String SOGEI_DOWNLOAD_SSL_CERT_ALIAS = "sogei.download.ssl.cert.alias";
 	public static final String SOGEI_DOWNLOAD_SSL_TRUST_STORE = "sogei.download.ssl.trust.store";
 	public static final String SOGEI_DOWNLOAD_SSL_TRUST_STORE_TYPE = "sogei.download.ssl.trust.store.type";
 	public static final String SOGEI_DOWNLOAD_SSL_TRUST_STORE_PWD = "sogei.download.ssl.trust.store.pwd";
 	public static final String SOGEI_DOWNLOAD_SSL_ON_JBOSS = "sogei.download.ssl.on.jboss";
+	
 	
 	/* certificazioni */
 	public static final String SOGEI_DOWNLOAD_ENDPOINT_CERT = "sogei.download.cert.endpoint";
@@ -73,6 +75,7 @@ public class Prop {
 	public static final String SOGEI_DOWNLOAD_SSL_KEY_STORE_CERT = "sogei.download.cert.ssl.key.store";
 	public static final String SOGEI_DOWNLOAD_SSL_KEY_STORE_TYPE_CERT = "sogei.download.cert.ssl.key.store.type";
 	public static final String SOGEI_DOWNLOAD_SSL_KEY_STORE_PWD_CERT = "sogei.download.cert.ssl.key.store.pwd";
+	public static final String SOGEI_DOWNLOAD_SSL_CERT_ALIAS_CERT = "sogei.download.cert.ssl.cert.alias";
 	public static final String SOGEI_DOWNLOAD_SSL_TRUST_STORE_CERT = "sogei.download.cert.ssl.trust.store";
 	public static final String SOGEI_DOWNLOAD_SSL_TRUST_STORE_TYPE_CERT = "sogei.download.cert.ssl.trust.store.type";
 	public static final String SOGEI_DOWNLOAD_SSL_TRUST_STORE_PWD_CERT = "sogei.download.cert.ssl.trust.store.pwd";

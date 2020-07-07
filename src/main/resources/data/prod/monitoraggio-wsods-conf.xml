@@ -15,19 +15,20 @@
             <ms:ErrorCustomMessage>servizio di download di sogei risulta non raggiungibile.</ms:ErrorCustomMessage>
             <ms:WarnCustomMessage>raggiungibilita' di download di sogei risulta non verificata.</ms:WarnCustomMessage>
             <ms:StepType>WS</ms:StepType>
-            <ms:Class>it.toscana.regione.monitoraggio.provider.impl.WSMonitorEntryProvider</ms:Class>
+            <ms:Class>it.toscana.regione.wsods.ejb.monitoraggio.impl.MonitorEntryProviderWsdsWs</ms:Class>
             <ms:url>@SOGEI_DOWNLOAD_ENDPOINT@?wsdl</ms:url>
-            <ms:connectionTimeout>6</ms:connectionTimeout>
+            <ms:connectionTimeout>36000</ms:connectionTimeout>
             <ms:httpBasicEnabled>false</ms:httpBasicEnabled>
             
             <ms:keystorePath>@SOGEI_DOWNLOAD_SSL_KEY_STORE@</ms:keystorePath>
             <ms:keystorePassword>@SOGEI_DOWNLOAD_SSL_KEY_STORE_PWD@</ms:keystorePassword>
             <ms:privatekeyPassword>@SOGEI_DOWNLOAD_SSL_KEY_STORE_PWD@</ms:privatekeyPassword>
             <ms:keystoreType>@SOGEI_DOWNLOAD_SSL_KEY_STORE_TYPE@</ms:keystoreType>
+            <ms:keystoreAlias>@SOGEI_DOWNLOAD_SSL_CERT_ALIAS@</ms:keystoreAlias>
             
-            <ms:trustorePath>@SOGEI_DOWNLOAD_SSL_TRUST_STORE@</ms:trustorePath>
-            <ms:trustorePassword>@SOGEI_DOWNLOAD_SSL_TRUST_STORE_PWD@</ms:trustorePassword>
-            <ms:trustoreType>@SOGEI_DOWNLOAD_SSL_TRUST_STORE_TYPE@</ms:trustoreType>
+            <ms:trustorePath>@SOGEI_DOWNLOAD_SSL_KEY_STORE@</ms:trustorePath>
+            <ms:trustorePassword>@SOGEI_DOWNLOAD_SSL_KEY_STORE_PWD@</ms:trustorePassword>
+            <ms:trustoreType>@SOGEI_DOWNLOAD_SSL_KEY_STORE_TYPE@</ms:trustoreType>
         </ms:MonitorStep>
         <ms:MonitorStep>
             <ms:ResourceName>Servizio upload apsese</ms:ResourceName>
@@ -45,9 +46,9 @@
             <ms:privatekeyPassword>@APS_UPLOAD_SSL_KEY_STORE_PWD@</ms:privatekeyPassword>
             <ms:keystoreType>@APS_UPLOAD_SSL_KEY_STORE_TYPE@</ms:keystoreType>
             
-            <ms:trustorePath>@APS_UPLOAD_SSL_TRUST_STORE@</ms:trustorePath>
-            <ms:trustorePassword>@APS_UPLOAD_SSL_TRUST_STORE_PWD@</ms:trustorePassword>
-            <ms:trustoreType>@APS_UPLOAD_SSL_TRUST_STORE_TYPE@</ms:trustoreType>
+            <ms:trustorePath>@APS_UPLOAD_SSL_KEY_STORE@</ms:trustorePath>
+            <ms:trustorePassword>@APS_UPLOAD_SSL_KEY_STORE_PWD@</ms:trustorePassword>
+            <ms:trustoreType>@APS_UPLOAD_SSL_KEY_STORE_TYPE@</ms:trustoreType>
         </ms:MonitorStep>
         <ms:MonitorStep>
             <ms:ResourceName>EntryProvider jpa wsods</ms:ResourceName>

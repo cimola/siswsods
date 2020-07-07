@@ -1,0 +1,12 @@
+-- DDL Statements for DATABASE PARTITION GROUPS --
+-----------------------------------
+ 
+CREATE DATABASE PARTITION GROUP "NODO1" ON DBPARTITIONNUMS 
+		(1);
+
+
+CREATE DATABASE PARTITION GROUP "NODO0" ON DBPARTITIONNUMS 
+		(0);
+
+
+------------------------------------
