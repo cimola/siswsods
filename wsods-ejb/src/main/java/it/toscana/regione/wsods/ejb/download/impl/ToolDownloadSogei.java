@@ -616,6 +616,9 @@ public class ToolDownloadSogei implements IToolDownloadSogei {
 		return nuova;
 	}
 	
+	/*Modificata gestione timer variazioni per far in modo che il download sia al minuto sulla giornata corrente*/
+	//Il recupero downlaod variazioni from sogei passerà il parametro A e quindi andrà a finire nell'else finale 
+	//per fare in modo che l'incremento sia al minuto nella giornata corrente
 	private final static long newDataLimite(final long lastDataLimite, final String tipoRichiesta) throws ConvertitoreException {
 		
 		final long incremento;

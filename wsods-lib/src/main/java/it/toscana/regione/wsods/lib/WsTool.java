@@ -52,7 +52,7 @@
 //			clearContextResponseDispatch(dispatch);
 //		} catch (final Throwable t) {
 //			if(t instanceof SOAPFaultException){ throw (SOAPFaultException)t; }
-//			throw new WsException(Code.SENDER_SERVIZIO_NON_DISPONIBILE, "impossibile invocare il servizzio", t);
+//			throw new WsException(Code.SENDER_SERVIZIO_NON_DISPONIBILE, "impossibile invocare il servizio", t);
 //		}
 //    	return response;
 //	}

@@ -90,7 +90,12 @@ public class ManagerDownload implements IManagerDownloader {
 
 	private static boolean richiedibile(final long newDataOraLimite,final String tipoRichiesta,final String tipologiaRicevuta){
 		if(IRicevutaDownloadSogei.TIPOLOGIA_RICEVUTA_CORRENTE.equals(tipologiaRicevuta)){
-			return (newDataOraLimite <= (System.currentTimeMillis() - Conf.getDeltaNuovaDataOraLimiteDownload()));
+			if ("A".equals(tipoRichiesta)) {
+				return (newDataOraLimite <= (System.currentTimeMillis() - Conf.getDeltaNuovaDataOraLimiteDownloadVariazioni()));
+			}
+			else {
+				return (newDataOraLimite <= (System.currentTimeMillis() - Conf.getDeltaNuovaDataOraLimiteDownload()));
+			}		
 		} else if(IRicevutaDownloadSogei.TIPOLOGIA_RICEVUTA_RECUPERO.equals(tipologiaRicevuta)){
 			
 				final String maxDataOraLimite;

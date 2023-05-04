@@ -109,6 +109,7 @@ public class Prop {
 	public static final String DATA_ORA_LIMITE_START = "data.ora.limite.start";
 	public static final String DATA_LIMITE_CERT_START = "data.limite.cert.start";
 	public static final String DELTA_NUOVA_DATA_ORA_LIMITE_DOWNLOAD = "delta.nuova.data.ora.limite.download";
+	public static final String DELTA_NUOVA_DATA_ORA_LIMITE_DOWNLOAD_VARIAZIONI = "delta.nuova.data.ora.limite.download.variazioni";
 	
 	public static final String MAX_DATA_LIMITE_DOWNLOAD_RECUPERO_CERTIFICAZIONI = "max.data.limite.download.recupero.certificazioni";
 	public static final String MAX_DATA_ORA_LIMITE_DOWNLOAD_RECUPERO_INSERIMENTI = "max.data.ora.limite.download.recupero.inserimenti";

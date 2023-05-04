@@ -28,9 +28,9 @@ public class DownloadVariazioniFormSogeiTimer  extends DownloadFormSogeiTimer im
 	 */
 	public DownloadVariazioniFormSogeiTimer() {}
 
-
-	@Override protected String tipoRichiesta() {return "V";}
-
+	/*Modificata gestione timer variazioni per far in modo che il download sia al minuto sulla giornata corrente*/
+	//@Override protected String tipoRichiesta() {return "V";}
+	@Override protected String tipoRichiesta() {return "A";}
 
 	@Override protected String tipologiaRicevuto() {return IRicevutaDownloadSogei.TIPOLOGIA_RICEVUTA_CORRENTE;}
 

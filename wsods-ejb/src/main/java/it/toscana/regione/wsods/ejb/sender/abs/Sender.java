@@ -218,7 +218,7 @@ public abstract class Sender implements ISender {
 					gestisciFault(idTrake, stringResponse,(WsToolServiceFaultRuntimeException)t);
 				}
 				
-				throw new DownloadException(Code.SENDER_SERVIZIO_NON_DISPONIBILE, "impossibile invocare il servizzio", t);
+				throw new DownloadException(Code.SENDER_SERVIZIO_NON_DISPONIBILE, "impossibile invocare il servizio", t);
 			}
 			
 			if (response == null) { throw new DownloadException(Code.GENERICO, "si e' ottenuto una response vuota"); }

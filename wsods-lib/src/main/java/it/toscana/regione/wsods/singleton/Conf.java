@@ -257,6 +257,7 @@ public class Conf {
 	/* autocertificazioni */
 	public synchronized static String getDataOraLimiteStart(){ return get(Prop.DATA_ORA_LIMITE_START); }
 	public synchronized static long getDeltaNuovaDataOraLimiteDownload() { return getLong(Prop.DELTA_NUOVA_DATA_ORA_LIMITE_DOWNLOAD,3L*Varie.TIME_MINUTO); }
+	public synchronized static long getDeltaNuovaDataOraLimiteDownloadVariazioni() { return getLong(Prop.DELTA_NUOVA_DATA_ORA_LIMITE_DOWNLOAD_VARIAZIONI,5L*Varie.TIME_MINUTO); }
 
 	public synchronized static String getMaxDataOraLimiteDownloadRecuperoInserimento() { return get(Prop.MAX_DATA_ORA_LIMITE_DOWNLOAD_RECUPERO_INSERIMENTI); }
 	public synchronized static void setMaxDataOraLimiteDownloadRecuperoInserimento(final String maxDataOraLimiteDownloadRecupero) { set(Prop.MAX_DATA_ORA_LIMITE_DOWNLOAD_RECUPERO_INSERIMENTI,maxDataOraLimiteDownloadRecupero); }
